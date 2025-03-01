@@ -58,7 +58,7 @@ def load_data():
 
 df, faiss_index = load_data()
 
-st.markdown('<h1 class="chat-font">🤖 Anitha Clone Chatbot </h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="chat-font">🤖 Anitha Clone Chatbot</h1>', unsafe_allow_html=True)
 st.markdown('<h3 class="chat-font">Ask me anything, and I\'ll respond as Anitha!</h3>', unsafe_allow_html=True)
 st.markdown("---")
 
@@ -70,7 +70,7 @@ def find_closest_question(query, faiss_index, df):
     return None
 
 def generate_refined_answer(query, retrieved_answer):
-    prompt = f"""You are Anitha Avagadda, a Student. Respond to the following question in a friendly and conversational tone:
+    prompt = f"""You are Anitha, an AISstudent. Respond to the following question in a friendly and conversational tone:
     Question: {query}
     Retrieved Answer: {retrieved_answer}
     - Provide a detailed and accurate response.
