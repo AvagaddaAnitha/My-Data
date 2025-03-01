@@ -38,7 +38,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Configure Gemini AI
-genai.configure(api_key="YOUR_API_KEY")  
+genai.configure(api_key="AIzaSyChdnIsx6-c36f1tU2P2BYqkrqBccTyhBE")  
 gemini = genai.GenerativeModel('gemini-1.5-flash')
 
 embedder = SentenceTransformer('all-MiniLM-L6-v2') 
