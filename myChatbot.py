@@ -58,7 +58,7 @@ def load_data():
 
 df, faiss_index = load_data()
 
-st.markdown('<h1 class="chat-font">🤖 Anitha Clone Chatbot</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="chat-font">🤖 Know about Her!! </h1>', unsafe_allow_html=True)
 st.markdown('<h3 class="chat-font">Ask me anything, and I\'ll respond as Anitha!</h3>', unsafe_allow_html=True)
 st.markdown("---")
 
@@ -97,9 +97,9 @@ if prompt := st.chat_input("Ask me anything..."):
             if retrieved_answer:
                 # Generate a refined answer using Gemini
                 refined_answer = generate_refined_answer(prompt, retrieved_answer)
-                response = f"*Anitha*:\n{refined_answer}"
+                response = f"**Anitha**:\n{refined_answer}"
             else:
-                response = "*Anitha*:\nI'm sorry, I cannot answer that question."
+                response = "**Anitha**:\nI'm sorry, I cannot answer that question."
         except Exception as e:
             response = f"An error occurred: {e}"
     
