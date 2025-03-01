@@ -8,31 +8,37 @@ import numpy as np
 st.markdown("""
 <style>
     .stApp {
-        background: #f8f5e6;
-        background-image: radial-gradient(#d4d0c4 1px, transparent 1px);
-        background-size: 20px 20px;
-    }
-    .chat-font {
-        font-family: 'Times New Roman', serif;
-        color: #2c5f2d;
-    }
-    .user-msg {
-        background: #ffffff !important;
-        border-radius: 15px !important;
-        border: 2px solid #2c5f2d !important;
-    }
-    .bot-msg {
-        background: #fff9e6 !important;
-        border-radius: 15px !important;
-        border: 2px solid #ffd700 !important;
-    }
-    .stChatInput {
-        background: #ffffff;
+        background: url("https://images.app.goo.gl/87KmmHg7k68Bi4TG6") no-repeat center center fixed;
+        background-size: cover;
     }
 </style>
 """, unsafe_allow_html=True)
 
-genai.configure(api_key="AIzaSyChdnIsx6-c36f1tU2P2BYqkrqBccTyhBE")  
+    .chat-font {
+        font-family: 'Cursive', sans-serif;
+        color: #d63384;
+    }
+    .user-msg {
+        background: #ffccff !important;
+        border-radius: 18px !important;
+        border: 2px solid #ff66b2 !important;
+        padding: 10px;
+    }
+    .bot-msg {
+        background: #ffe6f2 !important;
+        border-radius: 18px !important;
+        border: 2px solid #ff99cc !important;
+        padding: 10px;
+    }
+    .stChatInput {
+        background: #ffffff;
+        border: 2px solid #ff66b2;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Configure Gemini AI
+genai.configure(api_key="YOUR_API_KEY")  
 gemini = genai.GenerativeModel('gemini-1.5-flash')
 
 embedder = SentenceTransformer('all-MiniLM-L6-v2') 
@@ -58,8 +64,8 @@ def load_data():
 
 df, faiss_index = load_data()
 
-st.markdown('<h1 class="chat-font">🤖 Know about Her!! </h1>', unsafe_allow_html=True)
-st.markdown('<h3 class="chat-font">Ask me anything, and I\'ll respond as Anitha!</h3>', unsafe_allow_html=True)
+st.markdown('<h1 class="chat-font">💖 Meet Anitha! 💖</h1>', unsafe_allow_html=True)
+st.markdown('<h3 class="chat-font">Ask me anything, and I'll respond with charm! ✨</h3>', unsafe_allow_html=True)
 st.markdown("---")
 
 def find_closest_question(query, faiss_index, df):
@@ -84,22 +90,22 @@ if "messages" not in st.session_state:
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"], 
-                        avatar="🙋" if message["role"] == "user" else "🤖"):
-        st.markdown(message["content"])
+                        avatar="👩" if message["role"] == "user" else "💖"):
+        st.markdown(message["content"], unsafe_allow_html=True)
 
 if prompt := st.chat_input("Ask me anything..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     
-    with st.spinner("Thinking..."):
+    with st.spinner("Thinking... 💭"):
         try:
-            # Find the closest answer
             retrieved_answer = find_closest_question(prompt, faiss_index, df)
             if retrieved_answer:
-                # Generate a refined answer using Gemini
                 refined_answer = generate_refined_answer(prompt, retrieved_answer)
-                response = f"**Anitha**:\n{refined_answer}"
+                response = f"💖 **Anitha**:
+{refined_answer}"
             else:
-                response = "**Anitha**:\nI'm sorry, I cannot answer that question."
+                response = "💖 **Anitha**:
+I'm sorry, I cannot answer that question."  
         except Exception as e:
             response = f"An error occurred: {e}"
     
