@@ -70,7 +70,7 @@ def find_closest_question(query, faiss_index, df):
     return None
 
 def generate_refined_answer(query, retrieved_answer):
-    prompt = f"""You are Anitha, an AISstudent. Respond to the following question in a friendly and conversational tone:
+    prompt = f"""You are Anitha, an AI Student. Respond to the following question in a friendly and conversational tone:
     Question: {query}
     Retrieved Answer: {retrieved_answer}
     - Provide a detailed and accurate response.
