@@ -32,7 +32,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-genai.configure(api_key="AIzaSyBsq5Kd5nJgx2fejR77NT8v5Lk3PK4gbH8")  
+genai.configure(api_key="AIzaSyChdnIsx6-c36f1tU2P2BYqkrqBccTyhBE")  
 gemini = genai.GenerativeModel('gemini-1.5-flash')
 
 embedder = SentenceTransformer('all-MiniLM-L6-v2') 
@@ -58,7 +58,7 @@ def load_data():
 
 df, faiss_index = load_data()
 
-st.markdown('<h1 class="chat-font">🤖 Know About Anitha!! </h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="chat-font">🤖 Anitha Clone Chatbot </h1>', unsafe_allow_html=True)
 st.markdown('<h3 class="chat-font">Ask me anything, and I\'ll respond as Anitha!</h3>', unsafe_allow_html=True)
 st.markdown("---")
 
