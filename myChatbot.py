@@ -8,12 +8,9 @@ import numpy as np
 st.markdown("""
 <style>
     .stApp {
-        background: url("https://images.app.goo.gl/87KmmHg7k68Bi4TG6") no-repeat center center fixed;
+        background: url("https://t4.ftcdn.net/jpg/04/25/71/47/360_F_425714791_144GwzyrqZ2qibkWAG5cXkk2XknX2UOt.jpg") no-repeat center center fixed;
         background-size: cover;
     }
-</style>
-""", unsafe_allow_html=True)
-
     .chat-font {
         font-family: 'Cursive', sans-serif;
         color: #d63384;
@@ -101,11 +98,9 @@ if prompt := st.chat_input("Ask me anything..."):
             retrieved_answer = find_closest_question(prompt, faiss_index, df)
             if retrieved_answer:
                 refined_answer = generate_refined_answer(prompt, retrieved_answer)
-                response = f"💖 **Anitha**:
-{refined_answer}"
+                response = f"💖 **Anitha**:\n{refined_answer}"
             else:
-                response = "💖 **Anitha**:
-I'm sorry, I cannot answer that question."  
+                response = "💖 **Anitha**:\nI'm sorry, I cannot answer that question."  
         except Exception as e:
             response = f"An error occurred: {e}"
     
