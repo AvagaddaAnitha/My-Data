@@ -98,9 +98,9 @@ if prompt := st.chat_input("Ask me anything..."):
             retrieved_answer = find_closest_question(prompt, faiss_index, df)
             if retrieved_answer:
                 refined_answer = generate_refined_answer(prompt, retrieved_answer)
-                response = f"💖 **Anitha**:\n{refined_answer}"
+                response = f" **Anitha**:\n{refined_answer}"
             else:
-                response = "💖 **Anitha**:\nI'm sorry, I cannot answer that question."  
+                response = " **Anitha**:\nI'm sorry, I cannot answer that question."  
         except Exception as e:
             response = f"An error occurred: {e}"
     
